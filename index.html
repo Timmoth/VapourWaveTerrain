@@ -15,10 +15,20 @@
     </div>
     <script src="dist/VapourWaveTerrain.js"></script>
     <script>
+        var m = null;
         window.onload = function () {
-            var m = new VapourWaveTerrain();
+            if (m == null) {
+                m = new VapourWaveTerrain();
+            }
             m.Start();
         }
+
+        window.unload = function () {
+            if (m == null) {
+                return;
+            }
+            m.Stop();
+        }   
     </script>
 </body>
 
